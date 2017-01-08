@@ -61,6 +61,15 @@ PART TWO:
 PART THREE: Write your own function declarations - Part 3 questions aren't
 included in the doctest.
 
+    >>> make_list([1,2], 4.5, "six")
+    ([1, 2], 4.5, 'six')
+
+    # >>> make_list_new([1,2], 4.5, "six")
+    # ([1, 2], 4.5, 'six')
+
+    >>> repeat_word("Balloonicorn")
+    ('Balloonicorn', 'BalloonicornBalloonicornBalloonicorn')
+
 """
 
 ###############################################################################
@@ -205,6 +214,19 @@ def calculate_price(base_price, state, tax_rate=None):
 # write a Python function that takes in an arbitrary number of arguments.
 
 
+# def make_list_new(mystery_list, *args):
+#     """Appends all arguments to a list"""
+# # >>> from itertools import chain
+# # >>> list(chain.from_iterable(l))
+#     return mystery_list + args
+
+
+def make_list(*args):
+    """Appends all arguments to a list"""
+
+    return args
+
+
 # 2. Make a new function with a nested inner function.
 # The outer function will take in a word.
 # The inner function will multiply that word by 3.
@@ -217,6 +239,14 @@ def calculate_price(base_price, state, tax_rate=None):
 #>>> outer("Balloonicorn")
 #('Balloonicorn', 'BalloonicornBalloonicornBalloonicorn')
 
+
+def repeat_word(word):
+    """Uses inner function to return word multiplied by 3"""
+
+    def repeater(word):
+        return word * 3
+    repeated_word = repeater(word)
+    return word, repeated_word
 
 ###############################################################################
 
