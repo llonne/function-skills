@@ -7,6 +7,22 @@ go below this docstring.
 PART ONE: Write your own function declarations - Part 1 questions aren't
 included in the doctest.
 
+    >>> is_hometown("Sunland")
+    True
+
+    >>> is_hometown("Austin")
+    False
+
+    >>> combine_names("Lindsey", "Lonne")
+    'Lindsey Lonne'
+
+    >>> are_neighbors("David", "Bowie", "Sunland")
+    Hi, David Bowie, we're from the same place!
+
+    >>> are_neighbors("David", "Bowie", "Houston")
+    Hi David Bowie, where are you from?
+
+
 PART TWO:
 
     >>> is_berry("blackberry")
@@ -68,6 +84,32 @@ included in the doctest.
 #        here', where are you from?" depending on what the function from part
 #        (a) evaluates to.
 
+###############################################################################
+
+def is_hometown(town):
+    """Determines if town is Lindsey's hometown"""
+
+    if town is "Sunland":
+        return True
+    else:
+        return False
+
+
+def combine_names(fname, lname):
+    """Concatenates first and last name in one string"""
+
+    return fname + " " + lname
+
+
+def are_neighbors(fname, lname, town):
+    """Determines if we are from the same town"""
+
+    name = combine_names(fname, lname)
+    if is_hometown(town):
+        print "Hi, %s, we're from the same place!" % name
+    else:
+        print "Hi %s, where are you from?" % name
+
 
 ###############################################################################
 
@@ -80,6 +122,7 @@ included in the doctest.
 
 def is_berry(fruit):
     """Determines if fruit is a berry"""
+
     if fruit in ('strawberry', 'cherry', 'blackberry'):
         return True
     else:
@@ -129,6 +172,8 @@ def append_to_list(lst, num):
 #    fees.
 
 def calculate_price(base_price, state, tax_rate=None):
+    """Calculates an item's total cost including tax and fees"""
+
     float(base_price)
     if tax_rate is None:
         tax_rate = float('.05')
@@ -143,6 +188,7 @@ def calculate_price(base_price, state, tax_rate=None):
     else:
         total_cost = base_price + (base_price * tax_rate)
     return total_cost
+
 
 ###############################################################################
 
