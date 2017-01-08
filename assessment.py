@@ -69,7 +69,6 @@ included in the doctest.
 #        (a) evaluates to.
 
 
-
 ###############################################################################
 
 # PART TWO
@@ -81,8 +80,10 @@ included in the doctest.
 
 def is_berry(fruit):
     """Determines if fruit is a berry"""
-
-    pass
+    if fruit in ('strawberry', 'cherry', 'blackberry'):
+        return True
+    else:
+        return False
 
 
 # (b) Write another function, shipping_cost(), which calculates shipping cost
@@ -93,7 +94,10 @@ def is_berry(fruit):
 def shipping_cost(fruit):
     """Calculates shipping cost of fruit"""
 
-    pass
+    if is_berry(fruit):
+        return 0
+    else:
+        return 5
 
 
 # 2. Make a function that takes in a number and a list of numbers. It should
@@ -104,8 +108,8 @@ def append_to_list(lst, num):
     """Creates a new list consisting of the old list with the given number
        added to the end."""
 
-    pass
-
+    lst.append(num)
+    return lst
 
 
 # 3. Write a function calculate_price to calculate an item's total cost by
@@ -124,10 +128,21 @@ def append_to_list(lst, num):
 #    Your function should return the total cost of the item, including tax and
 #    fees.
 
-def calculate_price(FILL_ME_IN):
-
-    pass
-
+def calculate_price(base_price, state, tax_rate=None):
+    float(base_price)
+    if tax_rate is None:
+        tax_rate = float('.05')
+    if state is "MA" and base_price < 100.0:
+        total_cost = 1.0 + base_price + (base_price * tax_rate)
+    elif state is "MA" and base_price >= 100.0:
+        total_cost = 3.0 + base_price + (base_price * tax_rate)
+    elif state is "CA":
+        total_cost = base_price + (base_price * tax_rate) + (base_price * .03)
+    elif state is "PA":
+        total_cost = 2.0 + base_price + (base_price * tax_rate)
+    else:
+        total_cost = base_price + (base_price * tax_rate)
+    return total_cost
 
 ###############################################################################
 
